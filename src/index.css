@@ -1,0 +1,520 @@
+:root {
+  --animate-duration:.4s;
+  --animate-delay: 0s;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "inter", sans-serif;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+
+}
+
+body {
+  background:rgba(15, 16, 20, 1);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video {
+  width:100%;
+ 
+}
+
+
+/* background shadows */
+.shadow-1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  inset: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  box-shadow: 0px 0px 20px 30px black inset;
+  border-radius: 20px;
+}
+
+/* buttons */
+.btn {
+  position: relative;
+  display:block;
+  background-color: red;
+  border-radius:10px;
+  color: rgb(0,0,0);
+  align-items: center;
+  padding: 10px 24px;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease 0s
+}
+.btn:hover {
+  background-color: rgb(143, 0, 7);
+  color: white;
+}
+
+.load-more-btn {
+  width: 100%;
+}
+
+.icon {
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+
+
+.icon-content {
+  display:flex;
+  align-items: center;
+  height: 3.75rem;
+  margin-left:24px;
+  margin-right:24px;
+  opacity:1;
+}
+
+
+.icon:hover {
+  opacity:1;
+  transform: scale(1.1);
+}
+
+
+
+.icon-text {
+  margin-left:8px;
+  width: 220px;
+  animation: fadeInLeft;
+  animation-duration: .6s;
+  transition: all 100ms;
+}
+
+
+.icon-text-disappear {
+  opacity:0;
+  animation: fadeOutLeft;
+  animation-duration:.3s;
+}
+
+
+.fa, .fa-solid {
+  padding-bottom:16px;
+  padding-top: 16px;
+  padding-right: 8px;
+  padding-left: 8px;
+  max-width: 40px;
+}
+
+.delete-watchList {
+  animation: fadeOutRight;
+  animation-duration: 0.6s;
+}
+
+.zoomIn {
+  animation: zoomIn;
+  animation-duration: 600ms;
+}
+
+.zoomOut {
+  animation: zoomOut;
+  animation-duration: 600ms;
+}
+
+.carousel-slide-active {
+  border-color: #fff !important;
+  transform: scale(1.1);
+  opacity:1 !important;
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(91px,1fr));
+  grid-column-gap:8px;
+}
+
+.studio-anchor {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease-in 0.05s, z-index 0.3s ease-in 0.05s;
+  z-index:0;
+}
+
+.studio-anchor img {
+  display: block;
+  position: absolute;
+  inset: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: auto;
+  width: 0px;
+  height: 0px;
+  max-width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+
+}
+
+.studio-anchor video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width:0;
+  height:0;
+  min-height:100%;
+  min-width:100%;
+  transition: opacity 0.3s ease-in 0.05s;
+}
+
+
+.studio-anchor:hover {
+  transform: scale(1.15);
+  z-index: 1;
+}
+
+.studio-anchor video:hover {
+  opacity:1;
+}
+
+
+.all-movies-shows-list {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  padding: 30px 10px 26px;
+  grid-gap: 25px;
+  overflow: hidden;
+}
+
+
+
+.swiper-slide {
+  margin-top: 10px;
+  margin-bottom: 10px;
+ 
+}
+
+
+.swiper-button-next, .swiper-button-prev {
+color: white !important;
+ height: 100% !important;
+ top: 0 !important;
+ margin-top: 0 !important;
+ width: 100px !important;
+}
+
+
+
+.swiper-button-next {
+  opacity:0;
+  padding-left: 15px !important;
+    right: -1px !important;
+    background: linear-gradient(269.25deg, #0f1014 0.62%, rgba(15, 16, 20, 0) 99.33%);
+}
+
+.swiper-button-prev {
+  opacity:0;
+  left: -1px !important;
+  padding-right: 15px !important;
+  background: linear-gradient(88deg, #0f1014 .62%, rgba(15, 16, 20, 0) 99.50%)
+}
+
+.swiper-button-disabled {
+  visibility: hidden !important;
+}
+
+.swiper-wrapper:hover~ .swiper-button-next {
+  opacity:1;;
+}
+
+.swiper-wrapper:hover ~ .swiper-button-prev {
+  opacity:1;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  opacity:1;
+}
+.card  {
+  position: relative;
+  height: 18vw;
+  width:100%;
+  min-width: 70px;
+  min-height: 120px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 3px solid rgba(249, 249, 249, 0.1);
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+
+
+.card img {
+  position: absolute;
+  display:block;
+  inset: 0px;
+  height: 100%;
+  width:100%;
+  object-fit: fill;
+  transition: all 1s;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+.card:hover {
+  
+  border-color:white;
+}
+
+a {
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+/* This is the styling of the overlay when we click on trailer */
+.trailer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.show-trailer {
+  visibility: visible;
+  z-index: 10;
+}
+
+.trailer-container {
+  position: relative;
+  display:grid;
+  place-items: center;
+  width: 80vw;
+  height: 80vh;
+  max-width: 1170px;
+}
+
+.trailer-container iframe {
+  height: 80%;
+  width: 100%;
+}
+
+.close-trailer-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  color: hsl(360, 67%, 44%);
+  cursor: pointer;
+
+  margin-right: 16px;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.showToolBox {
+  visibility: visible !important;
+}
+
+.close-trailer-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.spinner {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: scale(0.5);
+  margin: auto;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.1), #000000 90%);
+  animation: spinner-wiggle 1.2s infinite;
+}
+
+.spinner:before,
+.spinner:after {
+  content: "";
+  position: absolute;
+  margin: -4px;
+  box-sizing: inherit;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  opacity: .05;
+  border: inherit;
+  border-color: transparent;
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+}
+
+.spinner:before {
+  border-top-color: #2c68da;
+}
+
+.spinner:after {
+  border-top-color: #00d5ff;
+  animation-delay: 0.3s;
+}
+
+@keyframes spinner-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-fade {
+  20% {
+    opacity: .1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: .1;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (mix-width: 480px) and (max-wdith: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 479px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-category-movie-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+ @media (max-width: 1100px) {
+   .all-movies-shows-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+   
+ }
+
+ @media (max-width: 840px) {
+  .all-movies-shows-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+ }
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-10px,0,0)
+  }
+  to {
+    opacity:1;
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity:0;
+    transform: translate3d(-8px,0,0)
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.animate__animated.animate__jackInTheBox {
+  --animate-duration: 2s
+}
+
+.fade-enter {
+  opacity:0;
+}
+
+.fade-enter-active {
+  transition: opacity 1500ms;
+  opacity:1;
+}
+
