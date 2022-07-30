@@ -3,12 +3,12 @@
 
 This is my first personal project which I have created after learning about front-end and back-end development, inspired by the original Disney+ streaming application. 
 
-I have mostly focused focused on the front-end and used firestore for the backend. I did not want to include authentication in my app, to make it easier for people to preview the it, in case they feel suspisous and don't want to use their credentials to log into the application.
+I have mostly focused focused on the front-end and used firestore for the backend. I did not want to include authentication in my app, to make it easier for people to preview it, in case they feel suspisous and don't want to use their credentials to log into the application.
 
 The app is hosted on Netlify and the link can be found on the right side of the page in the about section if interested. 
 
 ## Objective
-The project shows my front-end skills, using the react library to build a single page application with client side rendering (CSR) and manage the global states of the application using redux. 
+The project shows my front-end skills, using the react library to build a single page application with client side rendering and manage the global states of the application using redux. 
 
 My back-end skills were demonstrated using the The Movie Database (TMDB) API to fetch data about movies and TV shows. I would then add them to Firebase Cloud FireStore database in different collections. On the front-end side of the application, I would make calls to the database to fetch the movies and TV shows to display to the client.
 
@@ -39,6 +39,8 @@ The application is fully responsive on diffrent screen sizes. However, it does n
  - Add/Remove movies/shows from a Watch-later List
  - Search for a movie/show in the database.
  
- 
- 
+ ## Showcase
+https://user-images.githubusercontent.com/106918092/181937141-0464fa3c-19e5-4990-b75c-9028c71848b9.mp4
+
+
 
