@@ -1,8 +1,6 @@
 # Dinsey Plus Clone
 ## Description
 
-This is my first personal project which I have created after learning about front-end and back-end development, inspired by the original Disney+ streaming application. 
-
 I have mostly focused focused on the front-end and used firestore for the backend. I did not want to include authentication in my app, to make it easier for people to preview it, in case they feel suspisous and don't want to use their credentials to log into the application.
 
 The app is hosted on Netlify and the link can be found on the right side of the page in the about section if interested. 
